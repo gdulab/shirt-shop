@@ -10,7 +10,7 @@ const ProductForm = (props) => {
         console.log('Summary:');
         console.log('=======');
         console.log('Name: ', props.title);
-        console.log('Price: ', props.getPrice(props.basePrice, props.currentSize.additionalPrice));
+        console.log('Price: ', props.price);
         console.log('Size: ', props.currentSize.name);
         console.log('Color: ', props.currentColor);
     }
@@ -34,7 +34,7 @@ ProductForm.propTypes = {
     setCurrentSize: PropTypes.func.isRequired,
     currentColor: PropTypes.string.isRequired,
     setCurrentColor: PropTypes.func.isRequired,
-    getPrice: PropTypes.func.isRequired,
+    price: PropTypes.number.isRequired,
 }
 
 export default ProductForm;

@@ -8,11 +8,10 @@ const Product = props => {
     const [currentSize, setCurrentSize] = useState(props.sizes[0]);
     const [currentColor, setCurrentColor] = useState(props.colors[0]);
 
-    const getPrice = (basePrice, additionalPrice) => {
-        return Math.floor(basePrice + additionalPrice);
-    };
-
-    const price = useMemo(() => getPrice(props.basePrice, currentSize.additionalPrice), [props.basePrice, currentSize.additionalPrice]);
+    const price = useMemo(
+        () => Math.floor(props.basePrice + currentSize.additionalPrice), 
+        [props.basePrice, currentSize.additionalPrice]
+        );
 
     return (
         <article className={styles.product}>
@@ -30,7 +29,7 @@ const Product = props => {
                     colors={props.colors}
                     currentColor={currentColor}
                     setCurrentColor={setCurrentColor}
-                    getPrice={getPrice}
+                    price={price}
                     basePrice={props.basePrice}
                     additionalPrice={currentSize.additionalPrice}
                 />
